@@ -37,17 +37,11 @@ export default class TogglePattern extends Component {
         });
     };
 
-    _render(components) {
-        if (components.length === 1) {
-            return components[0];
-        }
-        return <div className="TogglePattern">
-            {components}
-        </div>;
-    }
-
     render() {
         const components = this.getMatchedComponent();
+        if (components.length === 0) {
+            return null;
+        }
         if (components.length === 1) {
             return components[0];
         }

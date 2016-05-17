@@ -27,6 +27,13 @@ describe('<TogglePattern />', () => {
         </TogglePattern>);
         assert(result.is(ComponentY));
     });
+    it('renders 0 components', () => {
+        const result = shallow(<TogglePattern isEditing={false}>
+            <ComponentX isEditing={true} />
+            <ComponentY />
+        </TogglePattern>);
+        assert(result.node === null);
+    });
     it('renders 2 <ComponentX /> components', () => {
         const wrapper = shallow(<TogglePattern isEditing={true}>
             <ComponentX isEditing={true} />
