@@ -49,6 +49,19 @@ Show component**s** that match attribute and value with `<TogglePattern attribut
 
 Result to `<div class="TogglePattern"><ComponentX /><ComponentX /></div>`
 
+-----
+
+Not show when not match
+
+```js
+<TogglePattern isEditing={false}>
+    <ComponentX isEditing={true} />
+    <ComponentY />
+</TogglePattern>
+```
+
+Result to `null`.
+
 ## Changelog
 
 See [Releases page](https://github.com/azu/react-toggle-pattern/releases).
