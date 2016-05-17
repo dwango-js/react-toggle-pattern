@@ -1,4 +1,4 @@
-# react-toggle-pattern
+# react-toggle-pattern [![Build Status](https://travis-ci.org/azu/react-toggle-pattern.svg?branch=master)](https://travis-ci.org/azu/react-toggle-pattern)
 
 React Component that provide toggle pattern
 
