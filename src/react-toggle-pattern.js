@@ -1,22 +1,11 @@
 // LICENSE : MIT
 "use strict";
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
 
-export default class TogglePattern extends Component {
+export default class TogglePattern extends React.Component {
     getFlagNames() {
         return Object.keys(this.props);
     }
-
-    getUnMatchedComponent() {
-        const children = [].concat(this.props.children);
-        const flagKeyNames = this.getFlagNames();
-        return children.filter(child => {
-            const childKeys = Object.keys(child.props);
-            return childKeys.some(childKey => {
-                return flagKeyNames.indexOf(childKey) == -1;
-            });
-        });
-    };
 
     getMatchedComponent() {
         const children = [].concat(this.props.children);
