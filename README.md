@@ -10,6 +10,35 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
+Put `<YourComponent />` into `<TogglePattern />`.
+
+```js
+class ToggleButton extends React.Component {
+    render(){
+        return (
+            <TogglePattern isEditing={this.props.isEditing}>
+                <LeaveEditingButton isEditing={true} />
+                <EnterEditingButton isEditing={false} />
+            </TogglePattern>
+        );
+    }
+}
+```
+
+It means that
+
+- if `this.props.isEditing` is `true`, show `<LeaveEditingButton />`
+- if `this.props.isEditing` is `false`, show `<EnterEditingButton />`
+- In the other case, show `null`
+
+### `<TogglePattern />` Interface
+
+- `<TogglePattern anyAttribute=anyValue />`
+    - `anyAttribute` is any name.
+    - `anyValue` is any type.
+
+### Example
+
 Show component that has truly attribute with `<TogglePattern attribute />`
 
 ```js
@@ -31,6 +60,17 @@ Show component that match attribute and value with `<TogglePattern attribute=val
 <TogglePattern isEditing={false}>
     <ComponentX isEditing={true} />
     <ComponentY isEditing={false} />
+</TogglePattern>
+```
+
+Result to `<ComponentY />`
+
+Also, it is ok that `value` it `string` type.
+
+```js
+<TogglePattern pattern="one">
+    <ComponentX pattern="one"/>
+    <ComponentY pattern="two"/>
 </TogglePattern>
 ```
 
@@ -61,6 +101,8 @@ Not show when not match
 ```
 
 Result to `null`.
+
+
 
 ## Changelog
 

@@ -4,11 +4,7 @@ import React, {Component, PropTypes} from 'react';
 
 export default class TogglePattern extends Component {
     getFlagNames() {
-        const keys = Object.keys(this.props);
-        return keys.filter(key => {
-            const flag = this.props[key];
-            return typeof flag === "boolean";
-        });
+        return Object.keys(this.props);
     }
 
     getUnMatchedComponent() {

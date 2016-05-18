@@ -50,4 +50,20 @@ describe('<TogglePattern />', () => {
         const result = wrapper.find(ComponentX);
         assert(result.length === 0);
     });
+
+    it('match any type value', () => {
+        const wrapper = shallow(<TogglePattern pattern="one">
+            <ComponentX pattern="one"/>
+            <ComponentY pattern="two"/>
+        </TogglePattern>);
+        assert(wrapper.is(ComponentX));
+
+        const symbol = {};
+        const wrapper1 = shallow(<TogglePattern pattern={symbol}>
+            <ComponentX pattern={symbol}/>
+            <ComponentY pattern="two"/>
+        </TogglePattern>);
+        assert(wrapper1.is(ComponentX));
+
+    });
 });
