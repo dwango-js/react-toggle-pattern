@@ -7,6 +7,10 @@ export default class TogglePattern extends React.Component {
         return Object.keys(this.props);
     }
 
+    /**
+     * get components from `children` that matches key and value with own props.
+     * @returns {ReactComponent[]}
+     */
     getMatchedComponent() {
         const children = [].concat(this.props.children);
         const flagKeyNames = this.getFlagNames();
