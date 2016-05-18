@@ -15,6 +15,10 @@ export default class TogglePattern extends React.Component {
         const children = [].concat(this.props.children);
         const flagKeyNames = this.getFlagNames();
         return children.filter(child => {
+            // ignore text child
+            if (!child.props) {
+                return false;
+            }
             const childKeys = Object.keys(child.props);
             return childKeys.some(childKey => {
                 return flagKeyNames.some(parentKey => {

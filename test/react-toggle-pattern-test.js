@@ -22,21 +22,21 @@ describe('<TogglePattern />', () => {
     });
     it('renders 1 <ComponentY /> components', () => {
         const result = shallow(<TogglePattern isEditing={false}>
-            <ComponentX isEditing={true} />
-            <ComponentY isEditing={false} />
+            <ComponentX isEditing={true}/>
+            <ComponentY isEditing={false}/>
         </TogglePattern>);
         assert(result.is(ComponentY));
     });
     it('renders 0 components', () => {
         const result = shallow(<TogglePattern isEditing={false}>
-            <ComponentX isEditing={true} />
+            <ComponentX isEditing={true}/>
             <ComponentY />
         </TogglePattern>);
         assert(result.node === null);
     });
     it('renders 2 <ComponentX /> components', () => {
         const wrapper = shallow(<TogglePattern isEditing={true}>
-            <ComponentX isEditing={true} />
+            <ComponentX isEditing={true}/>
             <ComponentX isEditing={true}/>
         </TogglePattern>);
         const result = wrapper.find(ComponentX);
@@ -64,6 +64,13 @@ describe('<TogglePattern />', () => {
             <ComponentY pattern="two"/>
         </TogglePattern>);
         assert(wrapper1.is(ComponentX));
-
+    });
+    it('safe handling mixed text', () => {
+        const wrapper = shallow(<TogglePattern pattern={1}>
+            <ComponentX pattern={1}/>
+            text
+            <ComponentY pattern={2}/>
+        </TogglePattern>);
+        assert(wrapper.is(ComponentX));
     });
 });
