@@ -1,8 +1,8 @@
 // LICENSE : MIT
 "use strict";
-import React from 'react';
+const React = require("react");
 
-export default class TogglePattern extends React.Component {
+export class TogglePattern extends React.Component {
     getFlagNames() {
         return Object.keys(this.props);
     }

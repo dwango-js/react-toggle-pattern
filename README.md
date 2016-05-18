@@ -13,6 +13,7 @@ Install with [npm](https://www.npmjs.com/):
 Put `<YourComponent />` into `<TogglePattern />`.
 
 ```js
+import {TogglePattern} from "react-toggle-pattern";
 class ToggleButton extends React.Component {
     render(){
         return (
@@ -42,7 +43,7 @@ It means that
 Show component that has truly attribute with `<TogglePattern attribute />`
 
 ```js
-const TogglePattern = require("react-toggle-pattern");
+const TogglePattern = require("react-toggle-pattern").TogglePattern;
 // render
 <TogglePattern isEditing={true}>
     <ComponentX isEditing/>

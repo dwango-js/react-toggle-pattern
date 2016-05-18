@@ -1,7 +1,7 @@
 const assert = require("power-assert");
 import React from "react";
 import {shallow} from 'enzyme';
-import TogglePattern from "../src/react-toggle-pattern";
+import {TogglePattern} from "../src/react-toggle-pattern";
 class ComponentY extends React.Component {
     render() {
         return <div>Hidden</div>
