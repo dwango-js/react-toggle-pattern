@@ -30,7 +30,10 @@
   "keywords": [
     "react",
     "component",
-    "ab"
+    "ab-testing",
+    "ab-test",
+    "pattern",
+    "toggle"
   ],
   "devDependencies": {
     "babel-cli": "^6.8.0",
