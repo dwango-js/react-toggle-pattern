@@ -41,7 +41,7 @@ describe('<ToggleOrPattern />', () => {
         </ToggleOrPattern>);
         const result = wrapper.find(ComponentX);
         assert(result.length === 2);
-        assert.equal(wrapper.html(), `<div class="ToggleOrPattern"><div>Visible</div><div>Visible</div></div>`)
+        assert.equal(wrapper.html(), `<div class="TogglePattern ToggleOrPattern"><div>Visible</div><div>Visible</div></div>`)
     });
     it('no renders <ComponentY /> components', () => {
         const wrapper = shallow(<ToggleOrPattern isEditing={true}>
@@ -82,7 +82,7 @@ describe('<ToggleOrPattern />', () => {
         assert(x.length === 1);
         const y = wrapper.find(ComponentX);
         assert(y.length === 1);
-        assert.equal(wrapper.html(), `<div class="ToggleOrPattern"><div>Visible</div><div>Hidden</div></div>`)
+        assert.equal(wrapper.html(), `<div class="TogglePattern ToggleOrPattern"><div>Visible</div><div>Hidden</div></div>`)
 
     });
 });

@@ -62,7 +62,7 @@ It means that
 Result to: 
 
 ```html
-<div class="ToggleOrPattern">
+<div class="TogglePattern ToggleOrPattern">
     <LeaveEditingButton a={true} b={false} />
     <EnterEditingButton a={true} />
 </div>
@@ -139,7 +139,7 @@ Show component**s** that match attribute and value with `<TogglePattern attribut
 </TogglePattern>
 ```
 
-Result to `<div class="ToggleOrPattern"><ComponentX /><ComponentX /></div>`
+Result to `<div class="TogglePattern ToggleOrPattern"><ComponentX /><ComponentX /></div>`
 
 -----
 
@@ -165,7 +165,7 @@ OR match
 </ToggleOrPattern>
 ```
 
-Result to `<div class="ToggleOrPattern"><div>Visible</div><div>Hidden</div></div>`.
+Result to `<div class="TogglePattern ToggleOrPattern"><div>Visible</div><div>Hidden</div></div>`.
 
 ------
 

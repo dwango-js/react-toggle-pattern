@@ -34,7 +34,7 @@ export default class ToggleOrPattern extends React.Component {
         if (components.length === 1) {
             return components[0];
         }
-        return <div className="ToggleOrPattern">
+        return <div className="TogglePattern ToggleOrPattern">
             {components}
         </div>;
     }

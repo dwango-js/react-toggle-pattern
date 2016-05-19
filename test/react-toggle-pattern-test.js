@@ -41,7 +41,7 @@ describe('<TogglePattern />', () => {
         </TogglePattern>);
         const result = wrapper.find(ComponentX);
         assert(result.length === 2);
-        assert.equal(wrapper.html(), `<div class="ToggleOrPattern"><div>Visible</div><div>Visible</div></div>`)
+        assert.equal(wrapper.html(), `<div class="TogglePattern ToggleOrPattern"><div>Visible</div><div>Visible</div></div>`)
     });
     it('no renders <ComponentY /> components', () => {
         const wrapper = shallow(<TogglePattern isEditing={true}>
