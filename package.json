@@ -45,10 +45,11 @@
     "enzyme": "^2.3.0",
     "mocha": "^2.4.5",
     "power-assert": "^1.4.1",
-    "react-addons-test-utils": "^15.0.2"
+    "react": "^15.0.2",
+    "react-addons-test-utils": "^15.0.2",
+    "react-dom": "^15.0.2"
   },
   "peerDependencies": {
-    "react": ">=15.0.2",
-    "react-dom": ">=15.0.2"
+    "react": ">=15.0.2"
   }
 }
