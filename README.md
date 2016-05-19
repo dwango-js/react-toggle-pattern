@@ -52,6 +52,8 @@ It means that
 
 `<ToggleOrPattern />` filter child components by **OR** matching.
 
+- find component that match with `a` is `true` or `b` is `false`.
+
 ```js
 <ToggleOrPattern a={true}>
     <LeaveEditingButton a={true} b={false} />
@@ -74,8 +76,10 @@ Both components are **or** match with TogglePattern.
 
 `<ToggleAndPattern />` filter child components by **AND** matching.
 
+- find component that match with `a` is `true` and `b` is `false`.
+
 ```js
-<ToggleAndPattern a={true}>
+<ToggleAndPattern a={true} b={false}>
     <LeaveEditingButton a={true} b={false} />
     <EnterEditingButton a={true} />
 </ToggleAndPattern>
