@@ -10,6 +10,12 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
+`react-toggle-pattern` provide three components.
+
+- `<TogglePattern />` or pattern. This is same with `<ToggleOrPattern />`
+- `<ToggleOrPattern />` or pattern
+- `<ToggleAndPattern />` and pattern
+
 Put `<YourComponent />` into `<TogglePattern />`.
 
 ```js
@@ -37,6 +43,51 @@ It means that
 - `<TogglePattern anyAttribute=anyValue />`
     - `anyAttribute` is any name.
     - `anyValue` is any type.
+
+`<ToggleOrPattern />` and `<ToggleAndPattern />` has same interface.
+
+### OR AND pattern
+
+#### OR
+
+`<ToggleOrPattern />` filter child components by **OR** matching.
+
+```js
+<ToggleOrPattern a={true}>
+    <LeaveEditingButton a={true} b={false} />
+    <EnterEditingButton a={true} />
+</ToggleOrPattern>
+```
+
+Result to: 
+
+```html
+<div class="TogglePattern ToggleOrPattern">
+    <LeaveEditingButton a={true} b={false} />
+    <EnterEditingButton a={true} />
+</div>
+```
+
+Both components are **or** match with TogglePattern.
+
+#### AND
+
+`<ToggleAndPattern />` filter child components by **AND** matching.
+
+```js
+<ToggleAndPattern a={true}>
+    <LeaveEditingButton a={true} b={false} />
+    <EnterEditingButton a={true} />
+</ToggleAndPattern>
+```
+
+Result to:
+
+```html
+<LeaveEditingButton a={true} b={false} />
+```
+
+`<EnterEditingButton />` is not **and** match with TogglePattern.
 
 ### Example
 
@@ -88,7 +139,7 @@ Show component**s** that match attribute and value with `<TogglePattern attribut
 </TogglePattern>
 ```
 
-Result to `<div class="TogglePattern"><ComponentX /><ComponentX /></div>`
+Result to `<div class="TogglePattern ToggleOrPattern"><ComponentX /><ComponentX /></div>`
 
 -----
 
@@ -103,6 +154,31 @@ Not show when not match
 
 Result to `null`.
 
+------
+
+OR match
+
+```js
+<ToggleOrPattern pattern1={1} pattern2={2}>
+    <ComponentX pattern1={1} pattern2={2}/>
+    <ComponentY pattern1={1}/>
+</ToggleOrPattern>
+```
+
+Result to `<div class="TogglePattern ToggleOrPattern"><div>Visible</div><div>Hidden</div></div>`.
+
+------
+
+And match
+
+````js
+<ToggleAndPattern pattern1={1} pattern2={2}>
+    <ComponentX pattern1={1} pattern2={2}/>
+    <ComponentY pattern1={1} />
+</ToggleAndPattern>
+```
+
+Result to `<ComponentX pattern1={1} pattern2={2}/>`.
 
 
 ## Changelog
