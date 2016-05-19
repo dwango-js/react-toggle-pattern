@@ -1,7 +1,7 @@
 const assert = require("power-assert");
 import React from "react";
 import {shallow} from 'enzyme';
-import {TogglePattern} from "../src/index";
+import ToggleOrPattern from "../src/ToggleOrPattern";
 class ComponentY extends React.Component {
     render() {
         return <div>Hidden</div>
@@ -12,65 +12,77 @@ class ComponentX extends React.Component {
         return <div>Visible</div>
     }
 }
-describe('<TogglePattern />', () => {
+describe('<ToggleOrPattern />', () => {
     it('renders 1 <ComponentX /> components', () => {
-        const result = shallow(<TogglePattern isEditing={true}>
+        const result = shallow(<ToggleOrPattern isEditing={true}>
             <ComponentX isEditing/>
             <ComponentY/>
-        </TogglePattern>);
+        </ToggleOrPattern>);
         assert(result.is(ComponentX));
     });
     it('renders 1 <ComponentY /> components', () => {
-        const result = shallow(<TogglePattern isEditing={false}>
+        const result = shallow(<ToggleOrPattern isEditing={false}>
             <ComponentX isEditing={true}/>
             <ComponentY isEditing={false}/>
-        </TogglePattern>);
+        </ToggleOrPattern>);
         assert(result.is(ComponentY));
     });
     it('renders 0 components', () => {
-        const result = shallow(<TogglePattern isEditing={false}>
+        const result = shallow(<ToggleOrPattern isEditing={false}>
             <ComponentX isEditing={true}/>
             <ComponentY />
-        </TogglePattern>);
+        </ToggleOrPattern>);
         assert(result.node === null);
     });
     it('renders 2 <ComponentX /> components', () => {
-        const wrapper = shallow(<TogglePattern isEditing={true}>
+        const wrapper = shallow(<ToggleOrPattern isEditing={true}>
             <ComponentX isEditing={true}/>
             <ComponentX isEditing={true}/>
-        </TogglePattern>);
+        </ToggleOrPattern>);
         const result = wrapper.find(ComponentX);
         assert(result.length === 2);
         assert.equal(wrapper.html(), `<div class="ToggleOrPattern"><div>Visible</div><div>Visible</div></div>`)
     });
     it('no renders <ComponentY /> components', () => {
-        const wrapper = shallow(<TogglePattern isEditing={true}>
+        const wrapper = shallow(<ToggleOrPattern isEditing={true}>
             <ComponentY />
-        </TogglePattern>);
+        </ToggleOrPattern>);
         const result = wrapper.find(ComponentX);
         assert(result.length === 0);
     });
 
     it('match any type value', () => {
-        const wrapper = shallow(<TogglePattern pattern="one">
+        const wrapper = shallow(<ToggleOrPattern pattern="one">
             <ComponentX pattern="one"/>
             <ComponentY pattern="two"/>
-        </TogglePattern>);
+        </ToggleOrPattern>);
         assert(wrapper.is(ComponentX));
 
         const symbol = {};
-        const wrapper1 = shallow(<TogglePattern pattern={symbol}>
+        const wrapper1 = shallow(<ToggleOrPattern pattern={symbol}>
             <ComponentX pattern={symbol}/>
             <ComponentY pattern="two"/>
-        </TogglePattern>);
+        </ToggleOrPattern>);
         assert(wrapper1.is(ComponentX));
     });
     it('safe handling mixed text', () => {
-        const wrapper = shallow(<TogglePattern pattern={1}>
+        const wrapper = shallow(<ToggleOrPattern pattern={1}>
             <ComponentX pattern={1}/>
             text
             <ComponentY pattern={2}/>
-        </TogglePattern>);
+        </ToggleOrPattern>);
         assert(wrapper.is(ComponentX));
+    });
+    it('render match Or pattern', () => {
+        const wrapper = shallow(<ToggleOrPattern pattern1={1} pattern2={2}>
+            <ComponentX pattern1={1} pattern2={2}/>
+            <ComponentY pattern1={1}/>
+        </ToggleOrPattern>);
+        const x = wrapper.find(ComponentX);
+        assert(x.length === 1);
+        const y = wrapper.find(ComponentX);
+        assert(y.length === 1);
+        assert.equal(wrapper.html(), `<div class="ToggleOrPattern"><div>Visible</div><div>Hidden</div></div>`)
+
     });
 });

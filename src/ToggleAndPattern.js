@@ -1,10 +1,12 @@
 // LICENSE : MIT
 "use strict";
 const React = require("react");
-
-export class TogglePattern extends React.Component {
+import {matchAnd} from "./utils/match-props";
+export default class ToggleAndPattern extends React.Component {
     getFlagNames() {
-        return Object.keys(this.props);
+        return Object.keys(this.props).filter(key => {
+            return key !== "children";
+        });
     }
 
     /**
@@ -19,14 +21,8 @@ export class TogglePattern extends React.Component {
             if (!child.props) {
                 return false;
             }
-            const childKeys = Object.keys(child.props);
-            return childKeys.some(childKey => {
-                return flagKeyNames.some(parentKey => {
-                    const parentValue = this.props[parentKey];
-                    const childValue = child.props[childKey];
-                    return childValue === parentValue;
-                });
-            });
+            // all match
+            return matchAnd(flagKeyNames, this.props, child.props);
         });
     };
 
@@ -38,7 +34,7 @@ export class TogglePattern extends React.Component {
         if (components.length === 1) {
             return components[0];
         }
-        return <div className="TogglePattern">
+        return <div className="ToggleAndPattern">
             {components}
         </div>;
     }
