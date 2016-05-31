@@ -83,6 +83,26 @@ describe('<ToggleOrPattern />', () => {
         const y = wrapper.find(ComponentX);
         assert(y.length === 1);
         assert.equal(wrapper.html(), `<div class="TogglePattern ToggleOrPattern"><div>Visible</div><div>Hidden</div></div>`)
-
+    });
+    it('render match Or pattern', () => {
+        class FixedBar extends React.Component {
+            render() {
+                return <div>{this.props.children}</div>
+            }
+        }
+        const Order = {
+            High: true,
+            Middle: true,
+            Low: false
+        };
+        const wrapper = shallow(<ToggleOrPattern High={Order.High} Middle={Order.Middle} Low={Order.Low}>
+            <FixedBar High={true}>High</FixedBar>
+            <FixedBar Middle={true}>Middle</FixedBar>
+            <FixedBar Low={true}>Low</FixedBar>
+            <FixedBar Middle={true}>Middle</FixedBar>
+        </ToggleOrPattern>);
+        // remove `Low`
+        assert.equal(wrapper.html(), `<div class="TogglePattern ToggleOrPattern"><div>High</div><div>Middle</div><div>Middle</div></div>`)
     });
 });
+
