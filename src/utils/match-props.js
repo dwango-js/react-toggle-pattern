@@ -5,6 +5,9 @@ export function matchAnd(keys, parentProps, childProps) {
     // all match
     return keys.every(parentKey => {
         return childKeys.some(childKey => {
+            if (parentKey !== childKey) {
+                return false;
+            }
             const parentValue = parentProps[parentKey];
             const childValue = childProps[childKey];
             if (childValue === parentValue) {
@@ -22,6 +25,9 @@ export function matchOr(keys, parentProps, childProps) {
     // some match
     return keys.some(parentKey => {
         return childKeys.some(childKey => {
+            if (parentKey !== childKey) {
+                return false;
+            }
             const parentValue = parentProps[parentKey];
             const childValue = childProps[childKey];
             if (childValue === parentValue) {
