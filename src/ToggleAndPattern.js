@@ -1,5 +1,4 @@
 // LICENSE : MIT
-"use strict";
 const React = require("react");
 import {matchAnd} from "./utils/match-props";
 export default class ToggleAndPattern extends React.Component {
