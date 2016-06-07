@@ -1,5 +1,4 @@
 // LICENSE : MIT
-"use strict";
 export function matchAnd(keys, parentProps, childProps) {
     const childKeys = Object.keys(childProps);
     // all match

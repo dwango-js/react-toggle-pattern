@@ -10,5 +10,10 @@
         "power-assert"
       ]
     }
-  }
+  },
+  "plugins": [
+    ["transform-strict-mode", {
+      "strict": true
+    }]
+  ]
 }

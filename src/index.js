@@ -1,5 +1,4 @@
 // LICENSE : MIT
-"use strict";
 import ToggleAndPattern from "./ToggleAndPattern";
 import ToggleOrPattern from "./ToggleOrPattern";
 module.exports = {
