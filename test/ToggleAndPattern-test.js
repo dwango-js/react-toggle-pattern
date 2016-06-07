@@ -47,7 +47,7 @@ describe('<ToggleAndPattern />', () => {
         const wrapper = shallow(<ToggleAndPattern isEditing={true}>
             <ComponentY />
         </ToggleAndPattern>);
-        const result = wrapper.find(ComponentX);
+        const result = wrapper.find(ComponentY);
         assert(result.length === 0);
     });
 
