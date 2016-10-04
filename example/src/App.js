@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TogglePattern} from "react-toggle-pattern";
+import {ToggleAndDisplayPattern as TogglePattern} from "react-toggle-pattern";
 import ActiveElement from "./ActiveElement";
 import './App.css';
 
@@ -7,7 +7,8 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            pattern: "A"
+            pattern: "A",
+            patternCorD: "C"
         }
     }
 
@@ -22,21 +23,40 @@ class App extends Component {
                 pattern: "A"
             });
         };
+        const onClickC = () => {
+            this.setState({
+                patternCorD: "D"
+            });
+        };
+        const onClickD = () => {
+            this.setState({
+                patternCorD: "C"
+            });
+        };
         return (
             <div className="App">
-                <TogglePattern pattern={this.state.pattern}>
-                    <div pattern={"A"} onClick={onClickA}>
-                        <button><p>
-                            A
-                        </p></button>
-                    </div>
-                    <div pattern={"B"} onClick={onClickB}>
-                        <span>BBB</span>
-                        <button>
-                            <span>B</span>
+                <div>
+                    <h2>Pattern A or B</h2>
+                    <TogglePattern pattern={this.state.pattern}>
+                        <button pattern={"A"} onClick={onClickA}>
+                            AAAAAA
                         </button>
-                    </div>
-                </TogglePattern>
+                        <button pattern={"B"} onClick={onClickB}>
+                            BBBBBB
+                        </button>
+                    </TogglePattern>
+                </div>
+                <div>
+                    <h2>Pattern C or D</h2>
+                    <TogglePattern pattern={this.state.patternCorD}>
+                        <button key="C" pattern={"C"} onClick={onClickC}>
+                            CCCCCCC
+                        </button>
+                        <button key="D" pattern={"D"} onClick={onClickD}>
+                            DDDDDDD
+                        </button>
+                    </TogglePattern>
+                </div>
                 <ActiveElement />
             </div>
         );
