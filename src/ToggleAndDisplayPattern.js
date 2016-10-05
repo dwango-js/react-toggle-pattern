@@ -1,12 +1,10 @@
 const React = require("react");
 const findDOMNode = require("react-dom").findDOMNode;
-const uuid = require("uuid");
 import {matchAnd} from "./utils/match-props";
 export default class ToggleAndDisplayPattern extends React.Component {
     constructor(...args) {
         super(...args);
         this.wrapper = null;
-        this.uuid = uuid();
         this._activeChidlren = [];
         this._hiddenChildren = [];
     }
@@ -31,7 +29,7 @@ export default class ToggleAndDisplayPattern extends React.Component {
             // all match
             if (matchAnd(flagKeyNames, this.props, child.props)) {
                 const newProps = {
-                    key: `${this.uuid}-${index}`
+                    key: index
                 };
                 newProps.ref = (c) => {
                     if (typeof child.ref === 'function') {
@@ -44,7 +42,7 @@ export default class ToggleAndDisplayPattern extends React.Component {
                 return React.cloneElement(child, newProps);
             } else {
                 const newProps = {
-                    key: `${this.uuid}-${index}`
+                    key: index
                 };
                 newProps.ref = (c) => {
                     if (typeof child.ref === 'function') {
