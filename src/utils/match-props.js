@@ -1,7 +1,7 @@
 // LICENSE : MIT
 "use strict";
 export function matchAnd(keys, parentProps, childProps) {
-    const childKeys = Object.keys(childProps);
+    const childKeys = childProps ? Object.keys(childProps) : [];
     // all match
     return keys.every(parentKey => {
         return childKeys.some(childKey => {
@@ -11,7 +11,7 @@ export function matchAnd(keys, parentProps, childProps) {
             const parentValue = parentProps[parentKey];
             const childValue = childProps[childKey];
             if (childValue === parentValue) {
-                return true
+                return true;
             } else if (childValue === undefined && parentKey === true) {
                 // <X attr />
                 return true;
@@ -21,7 +21,7 @@ export function matchAnd(keys, parentProps, childProps) {
     });
 }
 export function matchOr(keys, parentProps, childProps) {
-    const childKeys = Object.keys(childProps);
+    const childKeys = childProps ? Object.keys(childProps) : [];
     // some match
     return keys.some(parentKey => {
         return childKeys.some(childKey => {
