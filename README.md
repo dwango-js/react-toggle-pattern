@@ -12,6 +12,8 @@ Install with [npm](https://www.npmjs.com/):
 
 `react-toggle-pattern` provide three components.
 
+### Insert and Remove pattens
+
 - `<TogglePattern />` or pattern. This is same with `<ToggleOrPattern />`
 - `<ToggleOrPattern />` or pattern
 - `<ToggleAndPattern />` and pattern
@@ -175,7 +177,7 @@ Result to `<div class="TogglePattern ToggleOrPattern"><div>Visible</div><div>Hid
 
 And match
 
-````js
+```js
 <ToggleAndPattern pattern1={1} pattern2={2}>
     <ComponentX pattern1={1} pattern2={2}/>
     <ComponentY pattern1={1} />
@@ -184,6 +186,27 @@ And match
 
 Result to `<ComponentX pattern1={1} pattern2={2}/>`.
 
+
+### Show and Hide pattern
+
+It is an experimental pattern.
+
+- `<ToggleAndDisplayPattern />`
+
+It has same interface `<ToggleAndPattern />`, but it has difference logic.
+
+- It use `hidden` attribute for non-showing element.
+    - You should add `[hidden]{ display: none!important; };` to own css.
+- It always wrapped children components with `<div class="ToggleAndDisplayPattern">{children}</ToggleAndDisplayPattern>`
+
+**Props**
+
+- `<ToggleAndDisplayPattern />` try to preserve your focus.
+    - `<ToggleAndPattern />` missing focus because of inserting and removing.
+
+**Cons**
+
+- Automatically wrap `{this.props.children}` with `div` element.
 
 ## Changelog
 
