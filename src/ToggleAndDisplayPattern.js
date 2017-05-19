@@ -5,7 +5,7 @@ export default class ToggleAndDisplayPattern extends React.Component {
     constructor(...args) {
         super(...args);
         this.wrapper = null;
-        this._activeChidlren = [];
+        this._activeChildren = [];
         this._hiddenChildren = [];
     }
 
@@ -36,7 +36,7 @@ export default class ToggleAndDisplayPattern extends React.Component {
                         child.ref(c);
                     }
                     if (c) {
-                        this._activeChidlren.push(c);
+                        this._activeChildren.push(c);
                     }
                 };
                 return React.cloneElement(child, newProps);
@@ -58,7 +58,7 @@ export default class ToggleAndDisplayPattern extends React.Component {
     }
 
     componentWillUpdate() {
-        this._activeChidlren = [];
+        this._activeChildren = [];
         this._hiddenChildren = [];
     }
 
@@ -67,7 +67,7 @@ export default class ToggleAndDisplayPattern extends React.Component {
     }
 
     componentDidUpdate() {
-        this._updatePattens()
+        this._updatePattens();
     }
 
     render() {
@@ -90,7 +90,7 @@ export default class ToggleAndDisplayPattern extends React.Component {
             const activeElement = document.activeElement;
             isActiveWrapper = wrapper.contains(activeElement);
         }
-        this._activeChidlren.forEach(child => {
+        this._activeChildren.forEach(child => {
             const childDOM = findDOMNode(child);
             if (childDOM) {
                 childDOM.hidden = false;
@@ -103,11 +103,12 @@ export default class ToggleAndDisplayPattern extends React.Component {
             }
         });
         // move to focus
-        if (isActiveWrapper && this._activeChidlren.length === 1) {
-            const activeDOM = findDOMNode(this._activeChidlren[0]);
-            if (activeDOM) {
+        if (isActiveWrapper && this._activeChildren.length === 1) {
+            const activeDOM = findDOMNode(this._activeChildren[0]);
+            if (activeDOM && !activeDOM.contains(document.activeElement)) {
                 activeDOM.focus();
             }
         }
     }
 }
+
