@@ -2,14 +2,14 @@
   "name": "react-toggle-pattern",
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/react-toggle-pattern.git"
+    "url": "https://github.com/dwango-js/react-toggle-pattern.git"
   },
   "author": "azu",
   "email": "azuciao@gmail.com",
-  "homepage": "https://github.com/azu/react-toggle-pattern",
+  "homepage": "https://github.com/dwango-js/react-toggle-pattern",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/azu/react-toggle-pattern/issues"
+    "url": "https://github.com/dwango-js/react-toggle-pattern/issues"
   },
   "files": [
     "src/",

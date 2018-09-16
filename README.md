@@ -1,4 +1,4 @@
-# react-toggle-pattern [![Build Status](https://travis-ci.org/azu/react-toggle-pattern.svg?branch=master)](https://travis-ci.org/azu/react-toggle-pattern)
+# react-toggle-pattern [![Build Status](https://travis-ci.org/dwango-js/react-toggle-pattern.svg?branch=master)](https://travis-ci.org/dwango-js/react-toggle-pattern)
 
 React Component that provide toggle pattern
 
@@ -210,7 +210,7 @@ It has same interface `<ToggleAndPattern />`, but it has difference logic.
 
 ## Changelog
 
-See [Releases page](https://github.com/azu/react-toggle-pattern/releases).
+See [Releases page](https://github.com/dwango-js/react-toggle-pattern/releases).
 
 ## Running tests
 
@@ -221,7 +221,7 @@ Install devDependencies and Run `npm test`:
 ## Contributing
 
 Pull requests and stars are always welcome.
-For bugs and feature requests, [please create an issue](https://github.com/azu/react-toggle-pattern/issues).
+For bugs and feature requests, [please create an issue](https://github.com/dwango-js/react-toggle-pattern/issues).
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
